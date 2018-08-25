@@ -1,0 +1,4 @@
+.DS_Store
+.env/
+kubeflow_ks_app/
+kubeflow_repo/

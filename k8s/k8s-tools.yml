@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kube-tools
+  labels:
+    component: kube-tools
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: kube-tools
+  template:
+    metadata:
+      labels:
+        component: kube-tools
+    spec:
+      containers:
+      - name: kube-tools
+        image: kairen/tools:v0.1.0
+        command: ["/bin/bash", "-c", "while :; do echo 'Hey, folks'; sleep 5; done"]
+        env:
+        - name: KUBECONFIG
+          value: /root/.kube/config
+        imagePullPolicy: IfNotPresent
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+        volumeMounts:
+        - mountPath: /root/.kube/config
+          name: kubeconfig
+          readOnly: true
+      volumes:
+      - hostPath:
+          path: /etc/kubernetes/admin.conf
+          type: File
+        name: kubeconfig
