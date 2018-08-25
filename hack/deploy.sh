@@ -5,7 +5,6 @@
 
 set -xe
 
-kubectl create ns kubeflow
 KUBEFLOW_REPO=${KUBEFLOW_REPO:-"`pwd`/kubeflow_repo"}
 KUBEFLOW_VERSION=${KUBEFLOW_VERSION:-"0.2.2"}
 KUBEFLOW_DEPLOY=${KUBEFLOW_DEPLOY:-true}

@@ -28,4 +28,6 @@ spec:
   - name: simple-conf
     configMap:
       name: simple-conf
-      key: test.conf
+      items:
+      - key: test.conf
+        path: test.conf
