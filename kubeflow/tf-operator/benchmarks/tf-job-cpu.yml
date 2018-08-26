@@ -4,7 +4,7 @@ metadata:
   labels:
     experiment: experiment10
   name: tfjob
-  namespace: kubeflow
+  namespace: default
 spec:
   tfReplicaSpecs:
     Ps:
